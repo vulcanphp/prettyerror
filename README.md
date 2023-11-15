@@ -1,4 +1,4 @@
-# PhpScript\PrettyError
+# PrettyError
 Simplified way to handle PHP errors with a pretty interface
 
 ## Installation
