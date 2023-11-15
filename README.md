@@ -1,5 +1,5 @@
-# PrettyError
-Simplified way to handle PHP errors with a pretty interface
+# Pretty Error
+Pretty Error is a simplified way to handle PHP errors with a pretty interface
 
 ## Installation
 
@@ -8,7 +8,7 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install Sw
 ```bash
 $ composer require php-script/pretty-error
 ```
-## Register PrettyError
+## Register Pretty Error
 
 ```php
 <?php

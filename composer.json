@@ -1,6 +1,6 @@
 {
     "name": "php-script/pretty-error",
-    "description": "Simplified way to handle PHP errors with a pretty interface",
+    "description": "Pretty Error is a simplified way to handle PHP errors with a pretty interface",
     "license": "MIT",
     "autoload": {
         "psr-4": {
