@@ -1,0 +1,19 @@
+{
+    "name": "php-script/pretty-error",
+    "description": "Simplified way to handle PHP errors with a pretty interface",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "PhpScript\\PrettyError\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Shahin Moyshan",
+            "email": "freelance.shain@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    }
+}
