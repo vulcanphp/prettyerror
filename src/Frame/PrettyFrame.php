@@ -13,6 +13,10 @@ class PrettyFrame implements IFrame
 
     public function render(string $file, int $line_no): string
     {
+        if (!file_exists($file)) {
+            return 'File Not Found:';
+        }
+
         $file = highlight_file($file, true);
 
         if (!$file) {

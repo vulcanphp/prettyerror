@@ -15,15 +15,16 @@ class DevelopmentErrorHandler extends IErrorHandler
 
     public function handle($exception): void
     {
-        $frames = [];
+        $frames = [
+            [
+                'file' => $exception->getFile(),
+                'line' => $exception->getLine(),
+                'frame' => $this->frame->render($exception->getFile(), $exception->getLine())
+            ]
+        ];
 
         foreach ($exception->getTrace() as $key => $trace) {
-            if ($key == 0) {
-                $trace['file'] = $exception->getFile();
-                $trace['line'] = $exception->getLine();
-            }
-
-            if (!isset($trace['file'])) {
+            if ($key == 0 || !isset($trace['file'])) {
                 continue;
             }
 

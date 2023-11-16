@@ -26,15 +26,22 @@
 
     <script>
         <?php
+
+        $trace = $exception->getTrace()[0] ?? [];
+        if (!empty($trace)) {
+            echo 'console.log("' . (isset($trace['class']) ? $trace['class'] . '->' : '') . (isset($trace['function']) ? $trace['function'] . '()' : '') . (isset($trace['class']) || isset($trace['function']) ? ':' . $exception->getLine() : '') . '");';
+        }
+
+        echo 'console.log("' . $exception->getMessage() . '");';
+        echo 'console.log("Trace:");';
+        echo 'console.log("' . sprintf("(1) %s:%s", addslashes($exception->getFile()), $exception->getLine()) . '");';
+
         foreach ($exception->getTrace() as $key => $trace) {
-            if ($key == 0) {
-                echo 'console.log("' . (isset($trace['class']) ? $trace['class'] . '->' : '') . (isset($trace['function']) ? $trace['function'] . '()' : '') . ':' . $exception->getLine() . '");';
-                echo 'console.log("' . $exception->getMessage() . '");';
-                echo 'console.log("Trace:");';
-                echo 'console.log("' . sprintf("(%d) %s:%s", $key, $exception->getFile(), $exception->getLine()) . '");';
-            } else {
-                echo 'console.log("' . sprintf("(%d) %s:%s", $key + 1, $trace['file'], $trace['line']) . '");';
+            if ($key == 0 || !isset($trace['file'])) {
+                continue;
             }
+
+            echo 'console.log("' . sprintf("(%d) %s:%s", $key, addslashes($trace['file']), $trace['line']) . '");';
         }
         ?>
     </script>

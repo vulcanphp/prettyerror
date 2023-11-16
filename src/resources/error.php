@@ -1,4 +1,3 @@
-<?php $trace = $exception->getTrace()[0]; ?>
 <?php
 if (!function_exists('clearFilePath')) {
     function clearFilePath(string $file): string
@@ -38,9 +37,14 @@ if (!function_exists('clearFilePath')) {
     <div class="container my-16" style="text-align: left; font-weight: normal;">
         <div class="shadow-lg rounded-tl rounded-tr border-b bg-white  px-6 py-4">
             <div class="flex items-center justify-between">
-                <span class="bg-red-100 code-font text-red-800 py-1 px-3 rounded font-medium">
-                    <?= isset($trace['class']) ? $trace['class'] . '->' : '' ?><?= isset($trace['function']) ? $trace['function'] . '()' : '' ?>:<?= $exception->getLine() ?>
-                </span>
+                <?php
+                $trace = $exception->getTrace()[0] ?? [];
+                if (!empty($trace)) :
+                ?>
+                    <span class="bg-red-100 code-font text-red-800 py-1 px-3 rounded font-medium">
+                        <?= isset($trace['class']) ? $trace['class'] . '->' : '' ?><?= isset($trace['function']) ? $trace['function'] . '()' : '' ?>:<?= $exception->getLine() ?>
+                    </span>
+                <?php endif ?>
                 <span class="text-gray-600 text-sm font-semibold">PHP <?= phpversion() ?></span>
             </div>
             <p class="mt-4 text-xl font-medium text-gray-700"><?= $exception->getMessage() ?></p>
@@ -49,7 +53,7 @@ if (!function_exists('clearFilePath')) {
             <div class="flex">
                 <div class="w-4/12 border-r">
                     <div class="border-b px-6 h-[50px] flex items-center">
-                        <h2 class="text-gray-600 font-medium">Stack frames (<?= count($exception->getTrace()) ?>)</h2>
+                        <h2 class="text-gray-600 font-medium">Stack frames (<?= count($exception->getTrace()) + 1 ?>)</h2>
                     </div>
                     <div id="stact-tabs">
                         <?php foreach ($frames as $key => $frame) : ?>
