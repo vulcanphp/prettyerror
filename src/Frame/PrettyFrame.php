@@ -24,7 +24,7 @@ class PrettyFrame implements IFrame
 
         ob_start();
 
-        foreach (explode('<br />', $file) as $line_no) {
+        foreach (explode('<br />', $file) as $line) {
 
             if ($i < $start_line) {
                 $i++;
@@ -35,7 +35,7 @@ class PrettyFrame implements IFrame
                 continue;
             }
 
-            echo '<div class="syntax-highlight-line ' . ($i == $line_no ? 'active' : '') . '"><code><span class="syntax-highlight-no">' . $i . '</span> <div class="syntax-highlight-code">' . $line_no . '</div></code></div>';
+            echo '<div class="syntax-highlight-line ' . ($i == $line_no ? 'active' : '') . '"><code><span class="syntax-highlight-no">' . $i . '</span> <div class="syntax-highlight-code">' . $line . '</div></code></div>';
 
             $i++;
         }
