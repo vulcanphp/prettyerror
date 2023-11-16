@@ -31,9 +31,9 @@
                 echo 'console.log("' . (isset($trace['class']) ? $trace['class'] . '->' : '') . (isset($trace['function']) ? $trace['function'] . '()' : '') . ':' . $exception->getLine() . '");';
                 echo 'console.log("' . $exception->getMessage() . '");';
                 echo 'console.log("Trace:");';
-                echo 'console.log("' . sprintf("    (%d) %s:%s", $key, $exception->getFile(), $exception->getLine()) . '");';
+                echo 'console.log("' . sprintf("(%d) %s:%s", $key, $exception->getFile(), $exception->getLine()) . '");';
             } else {
-                echo 'console.log("' . sprintf("    (%d) %s:%s", $key + 1, $trace['file'], $trace['line']) . '");';
+                echo 'console.log("' . sprintf("(%d) %s:%s", $key + 1, $trace['file'], $trace['line']) . '");';
             }
         }
         ?>

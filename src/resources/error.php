@@ -3,7 +3,7 @@
 if (!function_exists('clearFilePath')) {
     function clearFilePath(string $file): string
     {
-        return trim(str_ireplace([(function_exists('root_dir') ? root_dir() : getcwd())], [''], $file), '/');
+        return trim(str_ireplace([(defined('ROOT_DIR') ? ROOT_DIR : (function_exists('root_dir') ? root_dir() : getcwd()))], [''], $file), '/');
     }
 }
 ?>
@@ -77,7 +77,26 @@ if (!function_exists('clearFilePath')) {
         </div>
     </div>
     <script>
-        <?= file_get_contents(__DIR__ . '/perror.js') ?>
+        for (const element of document.querySelectorAll('.trace-btn')) {
+            element.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                for (const btn of document.querySelectorAll('.trace-btn')) {
+                    btn.classList.remove('active');
+                }
+
+                for (const btn of document.querySelectorAll('.trace-editor')) {
+                    btn.classList.add('hidden');
+                }
+
+                var target = event.target,
+                    index = target.getAttribute('href');
+                target.classList.add('active');
+
+                document.querySelector('.trace-editor[index="' + index + '"]').classList.remove('hidden');
+                document.querySelector('#trace-editor-file').innerHTML = target.getAttribute('file');
+            });
+        }
     </script>
 </body>
 
