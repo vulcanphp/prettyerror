@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpScript\PrettyError\Frame;
+namespace VulcanPhp\PrettyError\Frame;
 
 interface IFrame
 {

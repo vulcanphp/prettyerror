@@ -1,8 +1,8 @@
 <?php
 
-namespace PhpScript\PrettyError\Handler;
+namespace VulcanPhp\PrettyError\Handler;
 
-use PhpScript\PrettyError\Frame\IFrame;
+use VulcanPhp\PrettyError\Frame\IFrame;
 
 class DevelopmentErrorHandler extends IErrorHandler
 {

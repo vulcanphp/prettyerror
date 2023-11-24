@@ -1,12 +1,12 @@
 <?php
 
-namespace PhpScript\PrettyError;
+namespace VulcanPhp\PrettyError;
 
 use ErrorException;
-use PhpScript\PrettyError\Frame\PrettyFrame;
-use PhpScript\PrettyError\Handler\CliErrorHandler;
-use PhpScript\PrettyError\Handler\DevelopmentErrorHandler;
-use PhpScript\PrettyError\Handler\ProductionErrorHandler;
+use VulcanPhp\PrettyError\Frame\PrettyFrame;
+use VulcanPhp\PrettyError\Handler\CliErrorHandler;
+use VulcanPhp\PrettyError\Handler\DevelopmentErrorHandler;
+use VulcanPhp\PrettyError\Handler\ProductionErrorHandler;
 
 class PrettyError
 {

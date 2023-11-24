@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpScript\PrettyError\Handler;
+namespace VulcanPhp\PrettyError\Handler;
 
 class CliErrorHandler extends IErrorHandler
 {

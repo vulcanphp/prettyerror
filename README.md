@@ -6,14 +6,14 @@ Pretty Error is a simplified way to handle PHP errors with a pretty interface
 It's recommended that you use [Composer](https://getcomposer.org/) to install SweetView.
 
 ```bash
-$ composer require php-script/pretty-error
+$ composer require vulcanphp/prettyerror
 ```
 ## Register Pretty Error
 
 ```php
 <?php
 
-use PhpScript\PrettyError\PrettyError;
+use VulcanPhp\PrettyError\PrettyError;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
