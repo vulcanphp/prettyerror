@@ -4,7 +4,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "PhpScript\\PrettyError\\": "src/"
+            "VulcanPhp\\PrettyError\\": "src/"
         }
     },
     "authors": [
